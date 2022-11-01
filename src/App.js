@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Test1 from "./components/Test1";
+import {useEffect, useLayoutEffect, useState} from "react";
+import Test2 from "./components/Test2";
+import {useDispatch, useSelector} from "react-redux";
+import {setActiveId} from "./store/app_reducer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch()
+    // const arr = useSelector(state => state.app.arr.find(item => item.id ===1).name)
+    console.log("app")
+    // const arr = useSelector(state => state.app.arr)
+
+    useEffect(() => {
+        setTimeout(() => {
+            // dispatch(setArrElement({id: 1, name: "react"}))
+            dispatch(setActiveId({id: 1}))
+        }, 3000)
+    }, [])
+
+    return (
+        <div className="App">
+            <Test1/>
+            <Test2/>
+        </div>
+    );
 }
 
 export default App;
