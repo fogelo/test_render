@@ -7,12 +7,11 @@ const Test2 = () => {
 
     const dispatch = useDispatch()
 
-    // const activeId = useSelector(state => state.app.activeId)
-    // const elements = useSelector(state => state.app.arr.filter(el => el))
-    const elements = useSelector(selectByFilter)
+    useEffect(()=>{
+        console.log("test2-effect")
+    },[])
 
-    // console.log(element)
-    console.log("test2", elements)
+    console.log("test2")
 
     return (
         <div>

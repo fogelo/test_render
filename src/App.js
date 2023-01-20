@@ -3,25 +3,29 @@ import Test1 from "./components/Test1";
 import {useEffect, useLayoutEffect, useState} from "react";
 import Test2 from "./components/Test2";
 import {useDispatch, useSelector} from "react-redux";
-import {setActiveId} from "./store/app_reducer";
+import {setActiveId, setArrElement} from "./store/app_reducer";
+import Test4 from "./components/Test4";
+import Test5 from "./components/Test5";
+import {Routes, Route} from "react-router-dom";
 
 function App() {
+    const [state, setState] = useState(0)
     const dispatch = useDispatch()
-    // const arr = useSelector(state => state.app.arr.find(item => item.id ===1).name)
-    console.log("app")
-    // const arr = useSelector(state => state.app.arr)
 
+    console.log("app")
     useEffect(() => {
-        setTimeout(() => {
-            // dispatch(setArrElement({id: 1, name: "react"}))
-            dispatch(setActiveId({id: 1}))
-        }, 3000)
+        console.log("app-effect")
     }, [])
+
+    setTimeout(() => {
+        setState(1)
+    }, 0)
 
     return (
         <div className="App">
             <Test1/>
             <Test2/>
+            <div>{state}</div>
         </div>
     );
 }

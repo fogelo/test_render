@@ -28,11 +28,14 @@ const slice = createSlice({
             state.userInfo.name = action.payload.name
         },
         setArr: (state, action) => {
+            // state.arr = action.payload.arr
             state.arr = action.payload.arr
+
         },
         setArrElement: (state, action) => {
-            const obj = state.arr.find(item => item.id === action.payload.id)
-            obj.name = action.payload.name
+            // const obj = state.arr.find(item => item.id === action.payload.id)
+            // obj.name = action.payload.name
+            state.arr = state.arr.map(el => el.id === action.payload.id ? {...el, name: action.payload.name} : el)
         },
         setActiveId: (state, action) => {
             state.activeId = action.payload.id
